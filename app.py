@@ -14,19 +14,20 @@ def about():
 
 @app.route('/getURL',methods=['GET','POST'])
 def getURL():
-    if request.method == 'POST':
         url = request.form['url']
         print(url)
         data = FeatureExtraction.getAttributess(url)
         print(data)
         RFmodel = pickle.load(open('MLP_classifier.pkl', 'rb'))
         predicted_value = RFmodel.predict(data)
-        #print(predicted_value)
+        print(predicted_value)
         if predicted_value == 0:    
             value = "Legitimate"
             return render_template("home.html",error=value)
         else:
             value = "Phishing"
             return render_template("home.html",error=value)
+        
+        
 if __name__ == "__main__":
     app.run(debug=True)
