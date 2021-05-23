@@ -352,7 +352,7 @@ def getAttributess(url):
    'domain_registration_length':pd.Series(domain_registration_length),'dns_record':pd.Series(dns_record),
    'statistical_report':pd.Series(statistical_report),'age_domain':pd.Series(age_domain),'http_tokens':pd.Series(http_tokens)}
     data=pd.DataFrame(d)
-    data = data.drop(data.columns[[0,3,5]],axis=1)
+    data = data.drop(data.columns[[0,1,2]],axis=1)
     return data
     #google_index.append(fe.google_index(url))
     #abnormal_url.append(fe.abnormal_url(url))
