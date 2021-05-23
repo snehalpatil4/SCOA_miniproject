@@ -1,7 +1,7 @@
-Flask==1.1.1
-gunicorn==19.9.0
-numpy>=1.9.2
-Scipy>=0.15.1
-scikit-learn>=0.18
-matplotib>=1.4.3
-pandas>=0.19
+Flask
+gunicorn
+numpy
+Scipy
+scikit-learn
+matplotib
+pandas
