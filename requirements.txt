@@ -9,8 +9,6 @@ pickle5
 bs4
 requests
 whois
-datetime
-time
-socket
-cython
+python-dateutil
+Cython
 urllib3
