@@ -5,3 +5,4 @@ Scipy
 scikit-learn
 matplotib
 pandas
+pickle
