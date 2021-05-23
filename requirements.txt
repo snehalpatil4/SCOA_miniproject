@@ -1,8 +1,16 @@
 flask
 gunicorn
 numpy
+urllib
 Scipy
 scikit-learn
 matplotlib
 pandas
 pickle5
+bs4
+requests
+whois
+datetime
+time
+socket
+cython
