@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request
 import FeatureExtraction
-import pickle
+import pickle5 as pickle
 
 app = Flask(__name__)
 
