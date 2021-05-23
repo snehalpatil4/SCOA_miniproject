@@ -1,7 +1,6 @@
 flask
 gunicorn
 numpy
-urllib
 Scipy
 scikit-learn
 matplotlib
@@ -14,3 +13,4 @@ datetime
 time
 socket
 cython
+urllib3
