@@ -12,3 +12,4 @@ whois
 python-dateutil
 Cython
 urllib3
+lxml
