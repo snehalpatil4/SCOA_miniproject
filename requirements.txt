@@ -3,6 +3,6 @@ gunicorn
 numpy
 Scipy
 scikit-learn
-matplotib
+matplotlib
 pandas
 pickle5
