@@ -18,7 +18,7 @@ def getURL():
         print(url)
         data = feature_extract(url)
         print(data)
-        RFmodel = pickle.load(open('MLP_Classifier.pkl', 'rb'))
+        RFmodel = pickle.load(open('clf.pkl', 'rb'))
         predicted_value = RFmodel.predict(data)
         print(predicted_value)
         if predicted_value == 0:    
