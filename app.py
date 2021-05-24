@@ -16,9 +16,9 @@ def about():
 def getURL():
         url = request.form['url']
         print(url)
-        data = FeatureExtraction.getAttributess(url)
+        data = feature_extraction(url)
         print(data)
-        RFmodel = pickle.load(open('RandomForst_classifier.pkl', 'rb'))
+        RFmodel = pickle.load(open('MLP_Classifier.pkl', 'rb'))
         predicted_value = RFmodel.predict(data)
         print(predicted_value)
         if predicted_value == 0:    
