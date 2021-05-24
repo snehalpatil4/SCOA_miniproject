@@ -17,7 +17,7 @@ import pandas as pd
 from urllib.parse import urlparse
 import re
 from bs4 import BeautifulSoup
-#import whois
+import whois
 import urllib.request
 import time
 import socket
@@ -195,8 +195,16 @@ class FeatureExtraction:
             return 2
         
     def domain_registration_length(self,url):
-
-            expiration_date = url.expiration_date
+        dns = 0
+        try:
+            domain_name = whois.whois(urlparse(url).netloc)
+        except:
+            dns = 1
+        
+        if dns == 1:
+            return 1      #phishing
+        else:
+            expiration_date = domain_name.expiration_date
             today = time.strftime('%Y-%m-%d')
             today = datetime.strptime(today, '%Y-%m-%d')
             if expiration_date is None:
@@ -204,8 +212,8 @@ class FeatureExtraction:
             elif type(expiration_date) is list or type(today) is list :
                 return 2     #If it is a type of list then we can't select a single value from list. So,it is regarded as suspected website  
             else:
-                creation_date = url.creation_date
-                expiration_date = url.expiration_date
+                creation_date = domain_name.creation_date
+                expiration_date = domain_name.expiration_date
                 if (isinstance(creation_date,str) or isinstance(expiration_date,str)):
                     try:
                         creation_date = datetime.strptime(creation_date,'%Y-%m-%d')
@@ -219,9 +227,17 @@ class FeatureExtraction:
                     return 0 # legitimate
             
     def age_domain(self,url):
-
-            creation_date = url.creation_date
-            expiration_date = url.expiration_date
+        dns = 0
+        try:
+            domain_name = whois.whois(urlparse(url).netloc)
+        except:
+            dns = 1
+        
+        if dns == 1:
+            return 1
+        else:
+            creation_date = domain_name.creation_date
+            expiration_date = domain_name.expiration_date
             if (isinstance(creation_date,str) or isinstance(expiration_date,str)):
                 try:
                     creation_date = datetime.strptime(creation_date,'%Y-%m-%d')
@@ -241,7 +257,13 @@ class FeatureExtraction:
      
     
     def dns_record(self,url):
-        dns=0
+        dns = 0
+        try:
+            domain_name = whois.whois(urlparse(url).netloc)
+            #rint(domain_name)
+        except:
+            dns = 1
+        
         if dns == 1:
             return 1
         else:
