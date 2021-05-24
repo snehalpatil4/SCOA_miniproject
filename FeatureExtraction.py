@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # In[ ]:
@@ -135,7 +134,8 @@ class FeatureExtraction:
             return 1               # phishing
         else:
             return 0               # legitimate
-        
+
+
     """
     def google_index(self,url):
         user_agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36'
@@ -353,6 +353,8 @@ def getAttributess(url):
    'statistical_report':pd.Series(statistical_report),'age_domain':pd.Series(age_domain),'http_tokens':pd.Series(http_tokens)}
     data=pd.DataFrame(d)
     data = data.drop(data.columns[[0,1,2]],axis=1)
+    for x in data:
+        print(data[x])
     return data
     #google_index.append(fe.google_index(url))
     #abnormal_url.append(fe.abnormal_url(url))
@@ -394,4 +396,3 @@ def getAttributess(url):
 
 
 #data.to_csv("phishing-urls.csv",index=False,encoding='UTF-8')
-
