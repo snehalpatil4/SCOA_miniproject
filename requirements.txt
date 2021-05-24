@@ -13,7 +13,4 @@ python-dateutil
 Cython
 urllib3
 lxml
-re
-csv
 pygeoip
-xml.dom
