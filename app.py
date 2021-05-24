@@ -16,7 +16,7 @@ def about():
 def getURL():
         url = request.form['url']
         print(url)
-        data = feature_extraction(url)
+        data = feature_extract(url)
         print(data)
         RFmodel = pickle.load(open('MLP_Classifier.pkl', 'rb'))
         predicted_value = RFmodel.predict(data)
