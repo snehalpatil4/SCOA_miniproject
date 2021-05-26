@@ -26,7 +26,7 @@ def getURL():
         # data.pop('safebrowsing')
         data_list = np.array(data).reshape(1, -1)
         print(data_list)
-        RFmodel = pickle.load(open('MLP_model_2.pkl', 'rb'))
+        RFmodel = pickle.load(open('MLP_model_.pkl', 'rb'))
         predicted_value = RFmodel.predict(data_list)
         print(predicted_value)
         if predicted_value == 0:    
